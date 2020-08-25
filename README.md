@@ -1,10 +1,23 @@
 # meshconvert
 
-Convert numerous formats of 3D mesh files into another with single command.
-This program natively supports multithreading and conversion of 3D mesh files stored in certain directory hierarchy.
+Convert numerous formats of 3D mesh files into another.
+Natively supports multithreading, conversion of 3D mesh files stored in certain directory hierarchy.
 
 ## BUILD
-g++ main.cpp util.h -lboost_system -lboost_filesystem -lassimp
+```
+mkdir build && cd build
+cmake ..
+make
+```
 
-## EXECUTE
-./a.out --source=[SOURCE] --destination=[DESTINATION] --format=obj
+## Usage
+./meshconvert --source=[SOURCE] --destination=[DESTINATION] --format=obj
+
+## Example
+```
+./meshconvert --source=data/bunny.ply --destination=output.obj --format=obj # Single File
+./meshconvert --source=data --destination=output --format=obj # Directory
+```
+
+## Dependencies
+Boost, assimp, cxxopts
